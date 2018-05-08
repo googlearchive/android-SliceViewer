@@ -1,0 +1,36 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+
+repositories {
+    jcenter()
+    google()
+}
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation "androidx.lifecycle:lifecycle-runtime:2.0.0-alpha1"
+    implementation "androidx.lifecycle:lifecycle-extensions:2.0.0-alpha1"
+    implementation "androidx.lifecycle:lifecycle-common:2.0.0-alpha1"
+    implementation "androidx.slice:slice-view:1.0.0-alpha1"
+    implementation "androidx.appcompat:appcompat:1.0.0-alpha1"
+    implementation "androidx.cardview:cardview:1.0.0-alpha1"
+    implementation "androidx.core:core-ktx:1.0.0-alpha1"
+    implementation 'com.android.support.constraint:constraint-layout:1.1.0'
+}
+
+android {
+    compileSdkVersion "android-P"
+
+    defaultConfig {
+        applicationId "com.example.android.sliceviewer"
+        minSdkVersion 19
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_7
+        targetCompatibility JavaVersion.VERSION_1_7
+    }
+}
