@@ -61,10 +61,10 @@
         android:id="@+id/slice_list"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:clipToPadding="false"
         android:paddingBottom="@dimen/vertical_page_margin"
         android:paddingEnd="@dimen/horizontal_page_margin"
         android:paddingStart="@dimen/horizontal_page_margin"
         android:paddingTop="@dimen/vertical_page_margin"
-        android:clipToPadding="false"
         app:layoutManager="LinearLayoutManager" />
 </LinearLayout>

@@ -16,11 +16,14 @@
 
 package com.example.android.sliceviewer.ui.list
 
+import android.content.Context
 import android.net.Uri
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.view.SubMenu
+import android.view.View
+import android.view.inputmethod.InputMethodManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
 import androidx.appcompat.widget.Toolbar
@@ -68,6 +71,15 @@ class SliceViewerActivity : AppCompatActivity() {
                     return false
                 }
             })
+            setOnClickListener {
+                searchView.isIconified = false
+            }
+            setOnFocusChangeListener { v: View, hasFocus: Boolean ->
+                if (!hasFocus) {
+                    (getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager)
+                        .hideSoftInputFromWindow(v.windowToken, 0)
+                }
+            }
             queryHint = getString(string.uri_input_hint)
         }
 
