@@ -27,8 +27,8 @@
 
     <!-- Semantic definitions -->
     <dimen name="slice_elevation">@dimen/margin_tiny</dimen>
-    <dimen name="horizontal_page_margin">@dimen/margin_medium</dimen>
-    <dimen name="vertical_page_margin">@dimen/margin_medium</dimen>
+    <dimen name="horizontal_page_margin">@dimen/margin_small</dimen>
+    <dimen name="vertical_page_margin">@dimen/margin_small</dimen>
     <dimen name="textSize">10sp</dimen>
     <dimen name="smallTextSize">9sp</dimen>
     <dimen name="align_with_slice_item">20dp</dimen>
