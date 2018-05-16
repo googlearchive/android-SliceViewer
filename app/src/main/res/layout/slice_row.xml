@@ -49,7 +49,6 @@
             android:layout_height="wrap_content"
             android:drawableEnd="@drawable/ic_arrow_forward_black_24dp"
             android:gravity="center_vertical"
-            android:paddingBottom="@dimen/margin_small"
             tools:text="content://..." />
     </LinearLayout>
 
