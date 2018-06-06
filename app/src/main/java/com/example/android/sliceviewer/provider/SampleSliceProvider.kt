@@ -44,12 +44,11 @@ class SampleSliceProvider : SliceProvider() {
     override fun onCreateSliceProvider() = true
 
     override fun onMapIntentToUri(intent: Intent?): Uri {
-        super.onMapIntentToUri(intent)
         val path = intent?.data?.path ?: ""
         return Uri.Builder()
             .scheme(ContentResolver.SCHEME_CONTENT)
             .authority(context.packageName)
-            .appendPath(path)
+            .path(path)
             .build()
     }
 
