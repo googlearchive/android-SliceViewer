@@ -66,9 +66,10 @@
             android:authorities="com.example.android.sliceviewer"
             android:exported="true">
             <intent-filter>
-                <action android:name="androidx.intent.SLICE_ACTION" />
+                <action android:name="android.intent.action.VIEW" />
 
-                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.app.slice.category.SLICE" />
+
 
                 <data
                     android:host="sliceviewer.android.example.com"
