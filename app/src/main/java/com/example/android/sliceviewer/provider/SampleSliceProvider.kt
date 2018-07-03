@@ -58,13 +58,13 @@ class SampleSliceProvider : SliceProvider() {
     private fun createHelloWorldSlice(sliceUri: Uri): Slice {
         return list(context, sliceUri, ListBuilder.INFINITY) {
             header {
-                setTitle("Hello World")
+                title = "Hello World"
             }
         }
     }
 
     private fun createTestSlice(sliceUri: Uri): Slice {
-        val activityAction = SliceAction(
+        val activityAction = SliceAction.create(
             PendingIntent.getActivity(
                 context, 0,
                 MainActivity.getIntent(context), 0
@@ -73,18 +73,19 @@ class SampleSliceProvider : SliceProvider() {
                 context,
                 R.drawable.ic_arrow_forward_black_24dp
             ),
+            ListBuilder.ICON_IMAGE,
             "Go to app."
         )
         return list(context, sliceUri, SliceHints.INFINITY) {
             setAccentColor(0x7f040047)
             header {
-                setTitle("Test Slice")
-                setSubtitle("Slice for testing purposes")
-                setSummary("Welcome to the basic Slice presenter.")
+                title = "Test Slice"
+                subtitle = "Slice for testing purposes"
+                summary = "Welcome to the basic Slice presenter."
             }
             row {
-                setTitle("Example Row")
-                setSubtitle("Row Subtitle")
+                title = "Example Row"
+                subtitle = "Row Subtitle"
                 addEndItem(
                     IconCompat.createWithResource(
                         context, R.drawable.ic_arrow_forward_black_24dp
