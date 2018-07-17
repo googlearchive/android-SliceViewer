@@ -44,7 +44,7 @@ fun SliceView.bind(
 ) {
     setOnSliceActionListener(onSliceActionListener)
     setOnClickListener(onClickListener)
-    setScrollable(scrollable)
+    isScrollable = scrollable
     setOnLongClickListener(onLongClickListener)
     if (uri.scheme == null) {
         Log.w(TAG, "Scheme is null for URI $uri")
@@ -64,9 +64,9 @@ fun SliceView.bind(
     ) {
         val intent = Intent(Intent.ACTION_VIEW, uri)
         val sliceLiveData = SliceLiveData.fromIntent(context, intent)
-        sliceLiveData?.removeObservers(lifecycleOwner)
+        sliceLiveData.removeObservers(lifecycleOwner)
         try {
-            sliceLiveData?.observe(lifecycleOwner, Observer { updatedSlice ->
+            sliceLiveData.observe(lifecycleOwner, Observer { updatedSlice ->
                 if (updatedSlice == null) return@Observer
                 slice = updatedSlice
                 val expiry = SliceMetadata.from(context, updatedSlice).expiry

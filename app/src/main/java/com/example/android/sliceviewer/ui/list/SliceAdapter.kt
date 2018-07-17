@@ -55,7 +55,7 @@ class SliceAdapter(
 
 class SliceViewHolder(
     view: View,
-    @SliceMode val selectedMode: LiveData<Int>,
+    @SliceMode private val selectedMode: LiveData<Int>,
     private val lifecycleOwner: LifecycleOwner
 ) : ViewHolder(view) {
 

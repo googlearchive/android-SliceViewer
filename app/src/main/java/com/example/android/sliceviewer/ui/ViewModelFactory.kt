@@ -18,7 +18,6 @@ package com.example.android.sliceviewer.ui
 
 import android.annotation.SuppressLint
 import android.content.Context
-import androidx.annotation.VisibleForTesting
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.android.sliceviewer.domain.LocalUriDataSource
