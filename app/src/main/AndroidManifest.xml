@@ -23,32 +23,35 @@
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme">
+
         <activity
             android:name=".ui.list.SliceViewerActivity"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
             <intent-filter>
                 <action android:name="androidx.intent.SLICE_ACTION" />
-
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".ui.single.SingleSliceViewerActivity"
             android:exported="true"
             android:label="@string/single_slice_viewer_activity"
             android:theme="@style/AppTheme">
+
             <intent-filter>
                 <action android:name="androidx.intent.SLICE_ACTION" />
-
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
+
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
 
@@ -65,11 +68,10 @@
             android:name=".provider.SampleSliceProvider"
             android:authorities="com.example.android.sliceviewer"
             android:exported="true">
+
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
-
                 <category android:name="android.app.slice.category.SLICE" />
-
 
                 <data
                     android:host="sliceviewer.android.example.com"
