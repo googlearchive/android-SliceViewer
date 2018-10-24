@@ -25,7 +25,7 @@ fun Uri.convertToOriginalScheme(): Uri {
     var builder = Uri.Builder()
         .authority(authority)
         .path(path)
-        .query(query)
+        .encodedQuery(query)
         .fragment(fragment)
     builder = when (scheme) {
         "slice-http" -> builder.scheme("http")
@@ -43,7 +43,7 @@ fun Uri.convertToSliceViewerScheme(): Uri {
     var builder = Uri.Builder()
         .authority(authority)
         .path(path)
-        .query(query)
+        .encodedQuery(query)
         .fragment(fragment)
     builder = when (scheme) {
         "http" -> builder.scheme("slice-http")
