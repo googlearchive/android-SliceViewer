@@ -16,13 +16,16 @@
 
 package com.example.android.sliceviewer.ui.list
 
+import android.content.ActivityNotFoundException
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import android.widget.Toast
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
@@ -74,12 +77,22 @@ class SliceViewHolder(
         )
 
         uriGroup.setOnClickListener {
-            context.startActivity(Intent(Intent.ACTION_VIEW, uri.convertToSliceViewerScheme()))
+            val sliceUri = uri.convertToSliceViewerScheme()
+            try {
+                context.startActivity(Intent(Intent.ACTION_VIEW, sliceUri))
+            } catch (e: ActivityNotFoundException) {
+                val msg = "No Activity found. URI: $sliceUri"
+                Log.w(TAG, msg)
+                Toast.makeText(context, msg, Toast.LENGTH_LONG).show()
+            }
         }
         selectedMode.observe(lifecycleOwner, Observer {
             sliceView.mode = it ?: SliceView.MODE_LARGE
         })
         uriValue.text = uri.toString()
+    }
+    companion object {
+        const val TAG = "SliceViewHolder"
     }
 }
 
