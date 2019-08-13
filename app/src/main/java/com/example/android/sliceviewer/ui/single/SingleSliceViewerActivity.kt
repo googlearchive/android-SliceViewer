@@ -29,6 +29,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.slice.widget.SliceView
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.example.android.sliceviewer.R
 import com.example.android.sliceviewer.R.drawable
 import com.example.android.sliceviewer.R.layout
@@ -47,6 +48,7 @@ class SingleSliceViewerActivity : AppCompatActivity() {
     private lateinit var sliceView: SliceView
     private lateinit var uriValue: TextView
     private lateinit var typeMenu: SubMenu
+    private lateinit var refresh: SwipeRefreshLayout
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -57,6 +59,11 @@ class SingleSliceViewerActivity : AppCompatActivity() {
 
         sliceView = findViewById(R.id.slice)
         uriValue = findViewById(R.id.uri_value)
+        refresh = findViewById(R.id.refresh)
+        refresh.setOnRefreshListener {
+            uriValue.text.toString().let(Uri::parse).let(::bindSlice)
+            refresh.isRefreshing = false
+        }
 
         // If a URI was passed in has a supported slice scheme, present the Slice and save it to the
         // persistent list of Slices
